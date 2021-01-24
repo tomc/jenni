@@ -1,0 +1,44 @@
+\documentclass[tom-jenni]{subfile}
+\begin{document}
+
+\chapter{Introduction}
+
+
+The latest version of this file should be available at \url{https://github.com/tomc/jenni/blob/master/tom-jenni.pdf}
+
+\section{Code Snippets}
+
+Throw some text as a test
+
+\orauction{1c,1s,1n,2c,2d}
+
+You can reference bids such as \cl{1} \di{2} \he{3} or \sp{4} inline, or even cards such as \clubs{A} \diamonds{K} \hearts{Q} \spades{J}. This can be expanded to suit holdings such as \spades{AKxx}.
+
+\shape{5332} any 5332 pattern
+\exactshape{5332} 5 \spadesuit, 2 \clubsuit, 3-3 in reds.  This is from BW style, previously Tom used \handpat{(5332)} or \handpat{5332}.  (Note there is supposed to be a change of font - seems subtle in this version.) 
+
+\rem{Tom version of comments}
+
+\ari{Ari version.}
+
+
+\section{Notation}
+
+\begin{description}
+	\item[R] Simple Raise
+	\item[R+1] One above a simple raise
+	\item[DR] Double Raise
+	\item[TR] Triple Raise
+	\item[LMH] Low-Middle-High
+	\item[LHB] Low-High-Both (Shortness relay after 10+ known cards.)
+	\item[+1] Next Bidding Step
+	\item[M] Major.  If one has been shown, it is the same one.
+	\item[OM] Other Major.  After a major is shown.
+	\item[m,om] Minor, other minor.
+	\item[JS] Jump Shift
+	\item[DJS] Double Jump Shift
+	\item[UTL] Up The Line (\ccc\ddd\hhh\sss)
+\end{description}
+
+
+\end{document}

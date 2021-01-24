@@ -1,0 +1,124 @@
+\documentclass[letterpaper,11pt,oneside]{memoir}
+\usepackage{infwarerr}
+\usepackage{bridge-mini} % reduced version of my bridge.sty
+\usepackage{bridgewinners} % taken without modification, but changing things below
+\usepackage{fontspec}
+\usepackage{unicode-math}  % to allow for new fonts in math mode (i.e., suit symbols)
+\usepackage{subfiles} % To have chapters be in separate docs
+\usepackage[margin=.2\textwidth]{geometry}
+\usepackage{longtable}
+\usepackage{graphicx, tikz}
+\usepackage[many]{tcolorbox}
+%\usepackage{marginnote}
+
+
+\setmainfont{DejaVu Serif}
+\setmathfont{DejaVu Serif}
+\author{Tom \& Jenni Carmichael}
+
+\cftsetindents{part}{-1em}{3em} % Adjust table of content defaults, numbers and titles were running together.
+\cftsetindents{chapter}{-1em}{3em}
+\cftsetindents{section}{0em}{3em}
+\setcounter{tocdepth}{1} % include sections not subsections
+
+\abnormalparskip{1em} % add space between paragraphs for readability
+
+% redefine the default color for diamonds and clubs
+\definecolor{clubcolor}{RGB}{23,118,88}
+\definecolor{diamondcolor}{RGB}{249,131,10}
+
+% What suit symbols to use?  Flag for BW printing vs ebook/web
+\newboolean{bwprint}
+\setboolean{bwprint}{true}
+\ifthenelse{\boolean{bwprint}}{%
+	\standardsuitsymbols}{%
+	\colorsuitsymbols}
+% ---------------- %
+
+\letterten
+\chapterstyle{ell}
+\renewcommand{\chapterheadstart}{\vspace*{0em}}
+
+\setlength\parindent{0pt} % Ari prefers no indentation for all paragraphs.
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{noted}[1][]{
+	width=\textwidth,
+	colback=cyan!20,
+	colbacktitle=blue!85!black,
+	fonttitle=\bfseries,
+	left=0ex,
+	right=0ex,
+	top=0pt,
+	arc=0pt,
+	outer arc=0pt,
+	leftrule=0pt,
+	rightrule=0pt,
+	toprule=0pt,
+	bottomrule=0pt,
+	breakable,
+	enhanced jigsaw,
+	title= \center{#1}}
+
+\begin{document}
+\frontmatter
+
+\thispagestyle{empty}
+\newgeometry{top=0.2cm, bottom=0.2cm, left=0.2cm,right=0.2cm}
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=0.85]
+	\path[fill=white] (-10,-20) to[out=45,in=270] (4,10) -- (-10,10);
+	\path[fill=white!75!teal] (-10,-19) to[out=50,in=270] (2,10) -- (-10,10);
+	\path[fill=white!50!teal] (-10,-20) to[out=55,in=270] (0,10) -- (-10,10);
+	\path[fill=green!67!blue] (-10,-20) to[out=60,in=270] (-2,10) -- (-10,10);
+	\path[fill=teal!75!black] (-10,-20) to[out=65,in=270] (-4,10) -- (-10,10);
+	\path[fill=black!60!teal] (-10,-20) to[out=70,in=270] (-6,10) -- (-10,10);
+	\path[fill=white] (-10,-20) to[out=45,in=180] (14,-4.5) -- (14,-15);
+	\path[fill=white!75!teal] (-10,-20) to[out=40,in=180] (14,-6.5) -- (14,-15);
+	\path[fill=white!50!teal] (-10,-20) to[out=35,in=180] (14,-8.5) -- (14,-15);
+	\path[fill=green!67!blue] (-10,-20) to[out=35,in=180] (14,-10.5) -- (14,-15);
+	\path[fill=teal!75!black] (-10,-20) to[out=30,in=180] (14,-12.5) -- (14,-15);
+	\path[fill=black!60!teal] (-10,-20) to[out=25,in=180] (14,-14.5) -- (14,-20) -- (-10,-20);
+	\node[black] at (8.25,4) {{\Huge  Tom \& Jenni}};
+	\node[black] at (8.25,2) {{\Huge  System Notes}};
+	\node[black] at (8.25,0) {{\Huge \today}};
+	\node[black] at (8.25,-2) {{\Huge \spadesuit \heartsuit \diamondsuit \clubsuit }};
+	\node[white] at (8.25,-17.5) {{\Huge TaJ Precision}}; 
+	\end{tikzpicture}
+\end{figure}
+\restoregeometry
+\pagebreak
+
+\title{Tom \& Jenni System Notes}
+\maketitle
+\tableofcontents
+
+\mainmatter
+%\subfile{intro}
+%\subfile{todo}
+\part{Opening Bids}
+%\subfile{summary}
+%\subfile{1c}
+%\subfile{1d}
+%\subfile{1maj}
+%\subfile{1nt}
+%\subfile{2c}
+%\subfile{2d}
+%\subfile{2maj}
+%\subfile{2nt}
+%\subfile{3x}
+%\subfile{3nt}
+%\subfile{otheropener}
+%\subfile{slam}
+
+\part{Competitive Bidding}
+%\subfile{GeneralRules}
+%\subfile{TheyOpen}
+%\subfile{WeOpen}
+\part{Carding}
+%\subfile{carding}
+\part{Post Mortem}
+%\subfile{postmortem}
+\backmatter
+\end{document}
